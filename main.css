@@ -42,24 +42,6 @@ table tr td:last-child {
     border-right: 0;
 }
 
-/* 
-/* 
-.finish {
-    /* display: none; */
-    /* width: 200px; */
-    /* top: 170px; 
-    position: absolute;
-    left: 50%;
-    margin-left: -100px;
-    padding-top: 50px; 
-    padding-bottom: 50px; 
-    text-align: center;
-    border-radius: 75px;
-    color: rgb(218, 129, 77);
-    font-size: 2em; */
-} */ */
-
-
 .play {
     display: none;
     width: 200px;
@@ -76,14 +58,6 @@ table tr td:last-child {
     font-size: 2em;
 
 }
-/* 
-footer {
-    align-content: overflow;
-    text-align: center;
-    font-family: "Comic Sans MS";
-    font-size: 20px;
-    color: rgb(7, 95, 146);
-} */
 
 .player1 {
     align-content: overflow;
@@ -150,5 +124,5 @@ body {
 
 .copyRights {
         text-align: center;
+        flex: center;
 }
-

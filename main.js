@@ -1,10 +1,16 @@
 
+//array that tracks all squares in X O hashtag
 var tictactoe;
+
+// players value
 const player1 = 'X';
 const player2 = 'O';
-var WhosTurn = 1;
-$(".turnName").text(player1);
 
+// turn variable that saves whosTurn in each click
+var WhosTurn = 1;
+// displays whosTurn
+$(".turnName").text(player1);
+// Array of all win cases
 const winCase = [
     [0, 1, 2],
     [3, 4, 5],
@@ -15,89 +21,73 @@ const winCase = [
     [0, 4, 8],
     [2, 4, 6]
 ]
+// Welcome  Sweet Alert 
 swal("Welcome to Tic Tac Toe", " press ok button if you are ready to play!!");
-
+// gets all the tds on HTML table 
 const squares = document.querySelectorAll('.square');
+// calls the play function to start the game
 play();
-
+// function that resets all squares in the game 
 function play() {
-    document.querySelector(".finish").style.display = "none";
+    // it fills the squares array with numbers from 0-8
     tictactoe = Array.from(Array(9).keys());
+    // it resets the content, style, recreate event listner  of all squares 
     for (var i = 0; i < squares.length; i++) {
         squares[i].innerText = '';
         squares[i].style.removeProperty('background-color');
         squares[i].addEventListener('click', turnClick, false);
     }
-    $('.text').text("")
-
 }
-
-// console.log(player1);
-// function turnClick(square) {
-//    console.log(square.target.id)
-// }
-
+// function that change the players turn based on mouse click using if statement 
 function turnClick(hashtag) {
-  //  var player1 = 'X'; 
-    console.log(hashtag.target);
-    console.log(hashtag.target.id);
-    if (WhosTurn ==1){
+    if (WhosTurn == 1) {
+// calls the turn function and pass the clicked td id & player1 value
         turn(hashtag.target.id, player1);
+// it displays whos turn on page
         $(".turnName").text(player2);
-        WhosTurn=2;
-        
+        WhosTurn = 2;
     }
-    else if (WhosTurn == 2 ){
+    else if (WhosTurn == 2) {
+// calls the turn function and pass the clicked td id & player2 value
         turn(hashtag.target.id, player2);
+         // it displays whos turn on page
         $(".turnName").text(player1);
-        
-                        //change p tag ro display "now it's player2 turn"
-
         WhosTurn = 1;
-
-   }
-
+    }
 }
 
 function turn(hashtagId, player) {
-    // console.log(tictactoe[hashtagId])
-    // console.log(document.getElementById(hashtagId).innerText)
-    if (typeof (tictactoe[hashtagId])=="number"){
+    if (typeof (tictactoe[hashtagId]) == "number") {
         tictactoe[hashtagId] = player;
         document.getElementById(hashtagId).innerText = player;
-}
-   let gameWon = checkWin(tictactoe, player)
+    }
+    let gameWon = checkWin(tictactoe, player)
     if (gameWon) {
         if (gameWon.player == 'No Winner') {
             console.log(gameWon.player)
             catGame();
         }
-        else  {
+        else {
             swal({
                 title: "Smart move!",
                 text: "You nailed it!!",
                 icon: "success",
                 button: "Play again..",
-
-            }).then((e=>{
-                
-                    if (e) {
-                        play();
-                    } else {
-                    }
-                }));
-            }
-
-            gameOver(gameWon);
+            }).then((e => {
+                if (e) {
+                    play();
+                } else {
+                }
+            }));
         }
-    
-
+        gameOver(gameWon);
+    }
 }
 
 function catGame() {
     swal({
         title: "Cat Game!",
-        text: "No one wins!!",
+        text: "Opsss! No one wins!!",
         button: "Play again..",
 
     }).then((e => {
@@ -119,9 +109,9 @@ function checkWin(tictac, player) {
             break;
         }
     }
-    if ((tictactoe.filter(i => typeof i == "number").length==0)){
-        return { index: -1, player:'No Winner'}; 
-     }
+    if ((tictactoe.filter(i => typeof i == "number").length == 0)) {
+        return { index: -1, player: 'No Winner' };
+    }
     return gameWon;
 }
 
@@ -133,6 +123,4 @@ function gameOver(gameWon) {
     for (var i = 0; i < squares.length; i++) {
         squares[i].removeEventListener('click', turnClick, false);
     }
-    $('.finish').css('display','block')
-
 }
