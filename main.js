@@ -9,7 +9,7 @@ const player2 = 'O';
 // turn variable that saves whosTurn in each click
 var WhosTurn = 1;
 // displays whosTurn
-$(".turnName").text(player1);
+$(".turnName").text("It's  "+player1+"'s  Turn");
 // Array of all win cases
 const winCase = [
     [0, 1, 2],
@@ -29,9 +29,9 @@ const squares = document.querySelectorAll('.square');
 play();
 // function that resets all squares in the game 
 function play() {
-    // it fills the squares array with numbers from 0-8
+// it fills the squares array with numbers from 0-8
     tictactoe = Array.from(Array(9).keys());
-    // it resets the content, style, recreate event listner  of all squares 
+// it resets the content, style, recreate event listner  of all squares 
     for (var i = 0; i < squares.length; i++) {
         squares[i].innerText = '';
         squares[i].style.removeProperty('background-color');
@@ -41,17 +41,17 @@ function play() {
 // function that change the players turn based on mouse click using if statement 
 function turnClick(hashtag) {
     if (WhosTurn == 1) {
-        // calls the turn function and pass the clicked td id & player1 value
+// calls the turn function and pass the clicked td id & player1 value
         turn(hashtag.target.id, player1);
-        // it displays whos turn on page
-        $(".turnName").text(player2);
+// it displays whos turn on page
+        $(".turnName").text("It's  " +player2+"'s  Turn");
         WhosTurn = 2;
     }
     else if (WhosTurn == 2) {
-        // calls the turn function and pass the clicked td id & player2 value
+// calls the turn function and pass the clicked td id & player2 value
         turn(hashtag.target.id, player2);
-        // it displays whos turn on page
-        $(".turnName").text(player1);
+// it displays whos turn on page
+        $(".turnName").text("It's  " +player1+"'s  Turn");
         WhosTurn = 1;
     }
 }
@@ -61,21 +61,21 @@ function turn(hashtagId, player) {
         tictactoe[hashtagId] = player;
         document.getElementById(hashtagId).innerText = player;
     }
-    
+//  it checks if there is any win 
     let gameWon = checkWin(tictactoe, player)
     if (gameWon) {
         if (gameWon.player == 'No Winner') {
             console.log(gameWon.player)
             catGame();
         }
-        // sweet alert that gives the win message
+// sweet alert that gives the win message
         else {
             swal({
                 title: "Smart move!",
                 text: "You nailed it!!",
                 icon: "success",
                 button: "Play again..",
-                // then it resets here since we called the play() function
+// then it resets here since we called the play() function
             }).then((e => {
                 if (e) {
                     play();
@@ -92,13 +92,9 @@ function catGame() {
         title: "Cat Game!",
         text: "Opsss! No one wins!!",
         button: "Play again..",
-
+// it resets the game when play again clicked
     }).then((e => {
-
-        if (e) {
-            play();
-        } else {
-        }
+        play();
     }));
 }
 // function that checks the win cases every step
@@ -112,6 +108,7 @@ function checkWin(tictac, player) {
             break;
         }
     }
+// it checks if the Tic Tac Toe hashtag is full or not yet
     if ((tictactoe.filter(i => typeof i == "number").length == 0)) {
         return { index: -1, player: 'No Winner' };
     }
