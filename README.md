@@ -16,40 +16,30 @@ jquery library:
 sweet alert:
  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<!-- ## Running the tests
-Explain how to run the automated tests for this system
+### Used Technologies:
+Html
+jQuery
+Css
+JavaScript
+Github for uploading the game
 
-### Break down into end to end tests
-Explain what these tests test and why
+### Approaches Taken: 
+I start building the landing page in HTML , which is linked to another HTML page for the Game. 
+Then I started styling the landing page and the TicTacToe page in CSS, then I started my JS. 
 
-Give an example
-### And coding style tests
-Explain what these tests test and why
+### Future Plans
+Add an AI player. 
+take an input from the user for name and choose a charcter image. 
+score the game. 
 
-Give an example
+### Resources
+W3school
+jQuery Docs
+Youtube tutorials
 
-## Deployment
-Add additional notes about how to deploy this on a live system
 
-## Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-
-## Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-
-## Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
-
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
-## Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc -->
+### Acknowledgments
+Appreciate all the help, thank you: 
+AlAnoud AlRasheed
+Mr. Ebere Iweala
+Mr. Marc Wright
