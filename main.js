@@ -41,38 +41,41 @@ function play() {
 // function that change the players turn based on mouse click using if statement 
 function turnClick(hashtag) {
     if (WhosTurn == 1) {
-// calls the turn function and pass the clicked td id & player1 value
+        // calls the turn function and pass the clicked td id & player1 value
         turn(hashtag.target.id, player1);
-// it displays whos turn on page
+        // it displays whos turn on page
         $(".turnName").text(player2);
         WhosTurn = 2;
     }
     else if (WhosTurn == 2) {
-// calls the turn function and pass the clicked td id & player2 value
+        // calls the turn function and pass the clicked td id & player2 value
         turn(hashtag.target.id, player2);
-         // it displays whos turn on page
+        // it displays whos turn on page
         $(".turnName").text(player1);
         WhosTurn = 1;
     }
 }
-
+// function turn that add each player value to the X O hashtag
 function turn(hashtagId, player) {
     if (typeof (tictactoe[hashtagId]) == "number") {
         tictactoe[hashtagId] = player;
         document.getElementById(hashtagId).innerText = player;
     }
+    
     let gameWon = checkWin(tictactoe, player)
     if (gameWon) {
         if (gameWon.player == 'No Winner') {
             console.log(gameWon.player)
             catGame();
         }
+        // sweet alert that gives the win message
         else {
             swal({
                 title: "Smart move!",
                 text: "You nailed it!!",
                 icon: "success",
                 button: "Play again..",
+                // then it resets here since we called the play() function
             }).then((e => {
                 if (e) {
                     play();
@@ -83,7 +86,7 @@ function turn(hashtagId, player) {
         gameOver(gameWon);
     }
 }
-
+// function that checks the tie every step
 function catGame() {
     swal({
         title: "Cat Game!",
@@ -98,7 +101,7 @@ function catGame() {
         }
     }));
 }
-
+// function that checks the win cases every step
 function checkWin(tictac, player) {
     let plays = tictac.reduce((a, e, i) =>
         (e === player) ? a.concat(i) : a, []);
@@ -114,7 +117,7 @@ function checkWin(tictac, player) {
     }
     return gameWon;
 }
-
+// function that change the background style when someone wins
 function gameOver(gameWon) {
     for (let index of winCase[gameWon.index]) {
         document.getElementById(index).style.backgroundColor =

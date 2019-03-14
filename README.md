@@ -8,10 +8,13 @@ you can play it Online at https://aceelalarifi.github.io/
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-What things you need to install the software and how to install them
-jquery library should be included in HTML file. 
+What things you need to install the software and how to install them:
+
+included in HTML file:
+jquery library:
     <script src='https://code.jquery.com/jquery-3.3.1.js'> </script>
-https://code.jquery.com/jquery-3.3.1.js
+sweet alert:
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 Give examples
